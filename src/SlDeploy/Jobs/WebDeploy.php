@@ -15,7 +15,7 @@ class WebDeploy extends Job implements SelfHandling, ShouldQueue {
 	 * @return void
 	 */
 	public function __construct() {
-		$this->shellPath = dirname(dirname(dirname(__DIR__)));
+		$this->shellPath = dirname(dirname(__DIR__));
 	}
 
 	/**
