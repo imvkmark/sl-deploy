@@ -22,7 +22,7 @@ class WebDeploy extends Job implements SelfHandling, ShouldQueue {
 	 * @return void
 	 */
 	public function handle() {
-		$shell   = "/bin/bash " . $this->shellPath . '/resources/shell/deploy.sh' . ' ' . base_path();
+		$shell   = "/bin/bash " . $this->shellPath . '/resources/shell/deploy.sh' . ' ' . base_path() . ' ' .env('SL_DEPLOY_BRANCH', 'master');
 		$process = new Process($shell);
 		$process->start();
 		$process->wait(function ($type, $buffer) {
